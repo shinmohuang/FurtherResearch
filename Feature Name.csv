@@ -1,0 +1,65 @@
+﻿N°,Feature,Description
+1,IMU1_GyroX_Mean,Mean
+2,IMU1_GyroX_StdDev,Standard deviation
+3,IMU1_GyroX_RMS,RMS value
+4,IMU1_GyroX_Amp,Amplitude
+5,IMU1_GyroY_Mean,Mean
+6,IMU1_GyroY_StdDev,Standard deviation
+7,IMU1_GyroY_RMS,RMS value
+8,IMU1_GyroY_Amp,Amplitude
+9,IMU1_GyroZ_Mean,Mean
+10,IMU1_GyroZ_StdDev,Standard deviation
+11,IMU1_GyroZ_RMS,RMS value
+12,IMU1_GyroZ_Amp,Amplitude
+13,IMU1_AccX_Mean,Mean
+14,IMU1_AccX_StdDev,Standard deviation
+15,IMU1_AccX_RMS,RMS value
+16,IMU1_AccX_Amp,Amplitude
+17,IMU1_AccY_Mean,Mean
+18,IMU1_AccY_StdDev,Standard deviation
+19,IMU1_AccY_RMS,RMS value
+20,IMU1_AccY_Amp,Amplitude
+21,IMU1_AccZ_Mean,Mean
+22,IMU1_AccZ_StdDev,Standard deviation
+23,IMU1_AccZ_RMS,RMS value
+24,IMU1_AccZ_Amp,Amplitude
+25,IMU2_GyroX_Mean,Mean
+26,IMU2_GyroX_StdDev,Standard deviation
+27,IMU2_GyroX_RMS,RMS value
+28,IMU2_GyroX_Amp,Amplitude
+29,IMU2_GyroY_Mean,Mean
+30,IMU2_GyroY_StdDev,Standard deviation
+31,IMU2_GyroY_RMS,RMS value
+32,IMU2_GyroY_Amp,Amplitude
+33,IMU2_GyroZ_Mean,Mean
+34,IMU2_GyroZ_StdDev,Standard deviation
+35,IMU2_GyroZ_RMS,RMS value
+36,IMU2_GyroZ_Amp,Amplitude
+37,IMU2_AccX_Mean,Mean
+38,IMU2_AccX_StdDev,Standard deviation
+39,IMU2_AccX_RMS,RMS value
+40,IMU2_AccX_Amp,Amplitude
+41,IMU2_AccY_Mean,Mean
+42,IMU2_AccY_StdDev,Standard deviation
+43,IMU2_AccY_RMS,RMS value
+44,IMU2_AccY_Amp,Amplitude
+45,IMU2_AccZ_Mean,Mean
+46,IMU2_AccZ_StdDev,Standard deviation
+47,IMU2_AccZ_RMS,RMS value
+48,IMU2_AccZ_Amp,Amplitude
+49,OFS_FIB_Mean,Mean
+50,OFS_FIB_StdDev,Standard deviation
+51,OFS_FIB_RMS,RMS value
+52,OFS_FIB_ROM,Range of Motion
+53,OFS_FIB_tnorm,Normalised repetition duration
+54,OFS_FIB_MNF,Mean frequency
+55,OFS_FIB_MDF,Median frequency
+56,OFS_FIB_IMNF,Instantaneous mean frequency
+57,EMG_EMG_Mean,Mean
+58,EMG_EMG_StdDev,Standard deviation
+59,EMG_EMG_RMS,RMS value
+60,EMG_EMG_Amp,Amplitude
+61,EMG_EMG_MNF,Mean frequency
+62,EMG_EMG_MDF,Median frequency
+63,EMG_EMG_IMNF,Instantaneous mean frequency
+64,Fatigue_level,Fatigue level
