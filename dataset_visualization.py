@@ -1,13 +1,13 @@
 import pandas as pd
 
 # Read the feature names CSV file
-feature_names = pd.read_csv(r'D:\OneDrive - University of Bristol\FurtherResearch\Feature Name.csv')
+feature_names = pd.read_csv(r'/Dataset/Feature Name.csv')
 
 # Create a list of feature names
 header_list = feature_names['Feature'].tolist()
 
 # Read the dataset CSV file
-dataset = pd.read_csv(r'D:\OneDrive - University of Bristol\FurtherResearch\Dataset.csv', names=header_list)
+dataset = pd.read_csv(r'/Dataset/Dataset.csv', names=header_list)
 
 # Print the first few rows of the dataset and feature names
 print(dataset.head())
