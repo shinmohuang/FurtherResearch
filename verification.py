@@ -34,16 +34,13 @@ def define_output_conditions(network, outputVars, desired_output_class):
 
 
 
-def check_results(status, initial_range, step_size, sat_counter):
+def check_results(status, initial_range, step_size):
     if status == "unsat":
         for i in range(len(initial_range)):
             initial_range[i] += step_size[i]
-        return True, initial_range, sat_counter
-    elif status == "sat":
-        sat_counter += 1
-        if sat_counter >= 10:
-            return False, initial_range, sat_counter
-    return True, initial_range, sat_counter
+        return True, initial_range
+    else:
+        return False, initial_range
 
 def block_solution(network, values, inputVars):
     """
@@ -96,7 +93,7 @@ def main():
         define_output_conditions(network, outputVars, 2)
         result = network.solve(verbose=True, options=options)
         status, values, stats = result
-        unsat, initial_range, sat_counter = check_results(status, initial_range, step_size, sat_counter)
+        unsat, initial_range = check_results(status, initial_range, step_size)
         if status == "sat":
             print("Solution found!")
             sat_counter += 1
