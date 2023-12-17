@@ -9,8 +9,6 @@ To run the notebooks and scripts, clone the repository and install the required 
 
 ```bash
 git clone https://github.com/shinmohuang/FurtherResearch.git
-cd FurtherResearch
-# install dependencies
 ```
 
 ## Usage
