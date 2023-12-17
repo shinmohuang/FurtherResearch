@@ -45,6 +45,30 @@ def check_results(status, initial_range, step_size, sat_counter):
             return False, initial_range, sat_counter
     return True, initial_range, sat_counter
 
+def block_solution(network, values, inputVars):
+    """
+    Adds constraints to the network to block the current solution.
+
+    Args:
+    network (MarabouNetwork): The Marabou network object.
+    values (dict): The current solution values.
+    inputVars (list): List of input variables.
+    """
+    for var in inputVars:
+        # Create a constraint that the variable is less than the current solution
+        eq1 = MarabouCore.Equation(MarabouCore.Equation.LE)
+        eq1.addAddend(1, var)
+        eq1.setScalar(values[var.item()] - 0.05)
+
+        # Create a constraint that the variable is greater than the current solution
+        eq2 = MarabouCore.Equation(MarabouCore.Equation.GE)
+        eq2.addAddend(1, var)
+        eq2.setScalar(values[var.item()] + 0.05)
+
+        # Add the disjunction of the two constraints to the network
+        network.addDisjunctionConstraint([[eq1], [eq2]])
+
+
 # Main function
 def main():
     file_name = 'model_without_softmax.onnx'
@@ -73,8 +97,16 @@ def main():
         result = network.solve(verbose=True, options=options)
         status, values, stats = result
         unsat, initial_range, sat_counter = check_results(status, initial_range, step_size, sat_counter)
-        if not unsat or sat_counter >= 10:  # Break if unsat is False or sat counter reaches 10
-            break
+        if status == "sat":
+            print("Solution found!")
+            sat_counter += 1
+
+            # 使用解的阻塞函数
+            block_solution(network, values, inputVars)
+
+            # 检查是否已达到所需的解数量
+            if sat_counter >= 10:
+                break
 
 
     range = [ir - ss for ir, ss in zip(initial_range, step_size)]
