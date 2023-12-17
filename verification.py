@@ -1,58 +1,78 @@
 from maraboupy import Marabou, MarabouCore
 import pandas as pd
+import os
+import numpy as np
+import csv
 
+def write_values_to_csv(values, filename):
+    current_directory = os.path.dirname(os.path.abspath(__file__))
+    full_path = os.path.join(current_directory, filename)
 
-# 加载模型和数据
-file_name = 'model_without_softmax.onnx'
-network = Marabou.read_onnx(file_name)
+    with open(full_path, 'a', newline='') as csvfile:
+        writer = csv.writer(csvfile)
 
-# 获取输入和输出变量
-inputVars = network.inputVars[0][0]
-outputVars = network.outputVars[0]
+        # Check if values is a dictionary
+        if isinstance(values, dict):
+            values = list(values.values())
+        # If it's a numpy array, convert it to a list
+        elif isinstance(values, np.ndarray):
+            values = values.tolist()
 
-# 加载高疲劳统计数据
-high_fatigue = pd.read_csv('statistic_analysis/dataset_statistics_fatigue_level_2.csv')
-mean_values = high_fatigue['mean'][:-1].values
+        writer.writerow(values)
 
-# 定义初始输入范围（以均值为中心的小范围）
-initial_range= [0.01] * 63  # 初始范围
-step_size = high_fatigue['std'][:-1].values * 0.1      # 每次迭代增加的范围
+    print(f"Values written to {full_path}")
 
-# options = Marabou.createOptions(numWorkers=20, initialTimeout=5, initialSplits=100, onlineSplits=100,
-#                                     timeoutInSeconds=1800, timeoutFactor=1.5,
-#                                     verbosity=2, snc=True, splittingStrategy='auto',
-#                                     sncSplittingStrategy='auto', restoreTreeStates=False,
-#                                     splitThreshold=20, solveWithMILP=True, dumpBounds=True)
-
-# 迭代过程
-unsat = True
-while unsat:
-    # 重置网络
-    network = Marabou.read_onnx(file_name)
-
-    # 设置输入范围
+def set_input_range(network, inputVars, mean_values, initial_range):
     for i, mean_val in enumerate(mean_values):
         network.setLowerBound(inputVars[i], mean_val - initial_range[i])
         network.setUpperBound(inputVars[i], mean_val + initial_range[i])
 
-    # 定义输出条件
-    desired_output_class = 2  # 高疲劳类别索引
+def define_output_conditions(network, outputVars, desired_output_class):
     for i in range(len(outputVars)):
         if i != desired_output_class:
             network.addInequality([outputVars[0][i], outputVars[0][desired_output_class]], [1, -1], 0)
 
-    # 运行验证
-    # vals = network.solve(verbose=True,options=options)[0]
-    vals = network.solve(verbose=True)[0]
 
-    # 检查结果
-    if vals == "unsat":
-        # 如果是 UNSAT，增加输入范围
+
+def check_results(status, initial_range, step_size):
+    if status == "unsat":
         for i in range(len(initial_range)):
             initial_range[i] += step_size[i]
+        return True, initial_range
     else:
-        # 如果不是 UNSAT，停止迭代
-        unsat = False
+        return False, initial_range
 
-# 输出最小 UNSAT 范围
-print(f"最小 UNSAT 范围: {initial_range - step_size}")
+# Main function
+def main():
+    file_name = 'model_without_softmax.onnx'
+    network = Marabou.read_onnx(file_name)
+
+    inputVars = network.inputVars[0][0]
+    outputVars = network.outputVars[0]
+
+    high_fatigue = pd.read_csv('statistic_analysis/dataset_statistics_fatigue_level_2.csv')
+    mean_values = high_fatigue['mean'][:-1].values
+
+    initial_range = [0.01] * 63
+    step_size = high_fatigue['std'][:-1].values * 0.1
+
+    options = Marabou.createOptions(numWorkers=20, initialTimeout=5, initialSplits=100, onlineSplits=100,
+                                    timeoutInSeconds=1800, timeoutFactor=1.5,
+                                    verbosity=2, snc=True, splittingStrategy='auto',
+                                    sncSplittingStrategy='auto', restoreTreeStates=False,
+                                    splitThreshold=20, solveWithMILP=True, dumpBounds=True)
+    unsat = True
+    while unsat:
+        network = Marabou.read_onnx(file_name)
+        set_input_range(network, inputVars, mean_values, initial_range)
+        define_output_conditions(network, outputVars, 2)
+        result = network.solve(verbose=True, options=options)
+        status, values, stats = result
+        unsat, initial_range = check_results(status, initial_range, step_size)
+    range = [ir - ss for ir, ss in zip(initial_range, step_size)]
+    print(f"最小 UNSAT 范围: {range}")
+    write_values_to_csv(range, 'baseline_range.csv')
+    write_values_to_csv(values, 'baseline_values.csv')
+
+if __name__ == "__main__":
+    main()
