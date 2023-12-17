@@ -34,13 +34,16 @@ def define_output_conditions(network, outputVars, desired_output_class):
 
 
 
-def check_results(status, initial_range, step_size):
+def check_results(status, initial_range, step_size, sat_counter):
     if status == "unsat":
         for i in range(len(initial_range)):
             initial_range[i] += step_size[i]
-        return True, initial_range
-    else:
-        return False, initial_range
+        return True, initial_range, sat_counter
+    elif status == "sat":
+        sat_counter += 1
+        if sat_counter >= 10:
+            return False, initial_range, sat_counter
+    return True, initial_range, sat_counter
 
 # Main function
 def main():
@@ -61,6 +64,7 @@ def main():
                                     verbosity=2, snc=True, splittingStrategy='auto',
                                     sncSplittingStrategy='auto', restoreTreeStates=False,
                                     splitThreshold=20, solveWithMILP=True, dumpBounds=True)
+    sat_counter = 0  # Initialize sat counter
     unsat = True
     while unsat:
         network = Marabou.read_onnx(file_name)
@@ -68,7 +72,11 @@ def main():
         define_output_conditions(network, outputVars, 2)
         result = network.solve(verbose=True, options=options)
         status, values, stats = result
-        unsat, initial_range = check_results(status, initial_range, step_size)
+        unsat, initial_range, sat_counter = check_results(status, initial_range, step_size, sat_counter)
+        if not unsat or sat_counter >= 10:  # Break if unsat is False or sat counter reaches 10
+            break
+
+
     range = [ir - ss for ir, ss in zip(initial_range, step_size)]
     print(f"最小 UNSAT 范围: {range}")
     write_values_to_csv(range, 'baseline_range.csv')
