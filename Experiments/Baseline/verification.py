@@ -74,7 +74,7 @@ def main():
     inputVars = network.inputVars[0][0]
     outputVars = network.outputVars[0]
 
-    high_fatigue = pd.read_csv('statistic_analysis/dataset_statistics_fatigue_level_2.csv')
+    high_fatigue = pd.read_csv('Statistic_analysis/dataset_statistics_fatigue_level_2.csv')
     mean_values = high_fatigue['mean'][:-1].values
 
     initial_range = [0.01] * 63
