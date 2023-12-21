@@ -68,7 +68,7 @@ def block_solution(network, values, inputVars):
 
 # Main function
 def main():
-    file_name = 'model_without_softmax.onnx'
+    file_name = 'Model/model_without_softmax.onnx'
     network = Marabou.read_onnx(file_name)
 
     inputVars = network.inputVars[0][0]
