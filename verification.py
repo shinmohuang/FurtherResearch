@@ -84,7 +84,7 @@ def main():
                                     timeoutInSeconds=1800, timeoutFactor=1.5,
                                     verbosity=2, snc=True, splittingStrategy='auto',
                                     sncSplittingStrategy='auto', restoreTreeStates=False,
-                                    splitThreshold=20, solveWithMILP=True, dumpBounds=True)
+                                    splitThreshold=20, solveWithMILP=True, dumpBounds=False)
     sat_counter = 0  # Initialize sat counter
     unsat = True
     while unsat:
