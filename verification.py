@@ -104,6 +104,9 @@ def main():
             # 检查是否已达到所需的解数量
             if sat_counter >= 10:
                 break
+        elif status == "unsat":
+            print("No solution found.")
+            print("Time:", stats.getTotalTimeInMicro())
 
 
     range = [ir - ss for ir, ss in zip(initial_range, step_size)]
