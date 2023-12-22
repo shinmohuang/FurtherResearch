@@ -1,8 +1,29 @@
 
-# FurtherResearch
+# Safety Analysis of an Exoskeleton Robot by Formal Verification
 
-## Description
-This repository contains code and notebooks for a data science/machine learning project. The exact focus of the project is not explicitly stated, but it involves clustering analysis, statistical analysis, and model training.
+## Overview
+This repository hosts the research data and analysis files for a project focused on [specific research area or goal]. It includes various datasets and Jupyter Notebooks for visualization and analysis.
+
+## Repository Structure
+
+### Folders
+- `Dataset`: Contains datasets used in the research.
+- `Experiments`: Includes different experiment categories such as BMI-Based, Baseline, Gender-Based, Individual-Specific, and Top LDA.
+    - `BMI-Based`: [Description of what this contains or represents]
+    - `Baseline`: [Description]
+    - `Gender-Based`: [Description]
+    - `Individual-Specific`: [Description]
+    - `Top LDA`: [Description]
+
+[//]: # (### Files)
+
+[//]: # (- `Metrics with BMI.xlsx`: An Excel file containing metrics related to Body Mass Index &#40;BMI&#41;.)
+
+[//]: # (- `README.md`: The README file for the repository.)
+
+[//]: # (- `dataset_visualization.ipynb`: A Jupyter Notebook for visualizing the datasets.)
+
+[//]: # (- `output.png`: An output image from one of the analyses.)
 
 ## Installation
 To run the notebooks and scripts, clone the repository and install the required dependencies.
