@@ -6,7 +6,7 @@ import pandas as pd
 
 # Main function
 @running_time
-# @suppress_error
+@suppress_error
 def main():
     file_name = '/home/adam/FurtherResearch/Model/Top_LDA/exo_model_top10_without_softmax.onnx'
     network = Marabou.read_onnx(file_name)
