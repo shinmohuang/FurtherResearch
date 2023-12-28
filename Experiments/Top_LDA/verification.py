@@ -18,8 +18,8 @@ def main():
         '/home/adam/FurtherResearch/Experiments/Top_LDA/dataset_statistics_mapped_fatigue_level_high.csv')
     mean_values = high_fatigue['mean'][:-1].values
 
-    initial_range = [0.01] * 63
-    step_size = high_fatigue['std'][:-1].values * 0.1
+    initial_range = [0.01] * 10
+    step_size = high_fatigue['std'][:-1].values * 0.01
 
     options = Marabou.createOptions(numWorkers=20, initialTimeout=5, initialSplits=100, onlineSplits=100,
                                     timeoutInSeconds=1800, timeoutFactor=1.5,

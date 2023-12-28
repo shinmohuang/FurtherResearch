@@ -1,13 +1,14 @@
 from maraboupy import Marabou
+from Scripts.my_deco import running_time, debug, suppress_error
+from Scripts import my_func as mf
 import pandas as pd
 
-from Experiments import Scripts
 
 
 # Main function
-@Scripts.my_deco.running_time
+@running_time
 def main():
-    file_name = '/Baseline/Baseline/model_without_softmax.onnx'
+    file_name = '/home/adam/FurtherResearch/Model/Baseline/model_without_softmax.onnx'
     network = Marabou.read_onnx(file_name)
 
     inputVars = network.inputVars[0][0]
@@ -28,11 +29,11 @@ def main():
     unsat = True
     while unsat:
         network = Marabou.read_onnx(file_name)
-        Scripts.my_func.set_input_range(network, inputVars, mean_values, initial_range)
-        Scripts.my_func.define_output_conditions(network, outputVars, 2)
+        mf.set_input_range(network, inputVars, mean_values, initial_range)
+        mf.define_output_conditions(network, outputVars, 2)
         result = network.solve(verbose=True, options=options)
         status, values, stats = result
-        unsat, initial_range = Scripts.my_func.check_results(status, initial_range, step_size)
+        unsat, initial_range = mf.check_results(status, initial_range, step_size)
         if status == "sat":
             print("Solution found!")
         elif status == "unsat":
@@ -42,8 +43,8 @@ def main():
 
     range = [ir - ss for ir, ss in zip(initial_range, step_size)]
     print(f"最小 UNSAT 范围: {range}")
-    Scripts.my_func.write_values_to_csv(range, 'baseline_range.csv')
-    Scripts.my_func.write_values_to_csv(values, 'baseline_values.csv')
+    mf.write_values_to_csv(range, 'baseline_range.csv', __file__)
+    mf.write_values_to_csv(values, 'baseline_values.csv', __file__)
 
 if __name__ == "__main__":
     main()
