@@ -25,6 +25,11 @@ This repository hosts the research data and analysis files for a project focused
 
 [//]: # (- `output.png`: An output image from one of the analyses.)
 
+## Dependencies
+```bash
+pip install -r requirements.txt
+```
+
 ## Installation
 To run the notebooks and scripts, clone the repository and install the required dependencies.
 
@@ -33,10 +38,18 @@ git clone https://github.com/shinmohuang/FurtherResearch.git
 ```
 
 ## Usage
-Open the Jupyter Notebooks (`*.ipynb`) in Jupyter Lab or Jupyter Notebook to view and run the analyses.
+To run the verification for the Baseline experiment (for example), run the following command from the root directory of the repository.
+
 
 ```bash
-jupyter notebook
+cd FurtherResearch/Experiments
+python -m Baseline.verification
+```
+
+To run verification for the Top LDA experiment, run the following command from the root directory of the repository.
+```bash
+cd FurtherResearch/Experiments
+python -m Top_LDA.verification
 ```
 
 ## Contributing
