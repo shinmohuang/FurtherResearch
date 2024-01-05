@@ -26,9 +26,14 @@ def main():
                                     verbosity=2, snc=True, splittingStrategy='auto',
                                     sncSplittingStrategy='auto', restoreTreeStates=False,
                                     splitThreshold=20, solveWithMILP=True, dumpBounds=False)
-    sat_counter = 0  # Initialize sat counter
+    # sat_counter = 0  # Initialize sat counter
     unsat = True
+    min_unsat_range = None
+    ITERATION = 0
+
     while unsat:
+        print(f"第 {ITERATION} 次迭代")
+        ITERATION += 1
         network = Marabou.read_onnx(file_name)
         mf.set_input_range(network, inputVars, mean_values, initial_range)
         mf.define_output_conditions(network, outputVars, 2)
@@ -36,16 +41,26 @@ def main():
         status, values, stats = result
         unsat, initial_range = mf.check_results(status, initial_range, step_size)
         if status == "sat":
+            min_unsat_range = initial_range.copy()
+            range_bounds = [(mean_val - range_val, mean_val + range_val) for mean_val, range_val in
+                            zip(mean_values, min_unsat_range)]
+            print("最小 UNSAT 范围的界限:", range_bounds)
+            # 可以选择将界限写入文件
+            mf.write_values_to_csv(range_bounds, 'top10_range_bounds.csv', __file__)
             print("Solution found!")
+            unsat = False
         elif status == "unsat":
+            min_unsat_range = initial_range.copy()
             print("No solution found.")
             print("Time:", stats.getTotalTimeInMicro())
 
-    range = [ir - ss for ir, ss in zip(initial_range, step_size)]
-    print(f"最小 UNSAT 范围: {range}")
-    mf.write_values_to_csv(range, 'top10_range.csv', __file__)
-    mf.write_values_to_csv(values, 'top10_values.csv', __file__)
 
+
+    # print(f"最小 UNSAT 范围: {range}")
+    # mf.write_values_to_csv(range, 'top10_range.csv', __file__)
+    mf.write_values_to_csv(values, 'top10_values.csv', __file__)
+    # 可以选择将界限写入文件
+    # mf.write_values_to_csv(range_bounds, 'top10_range_bounds.csv', __file__)
 
 if __name__ == "__main__":
     main()

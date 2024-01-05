@@ -48,6 +48,36 @@ def define_output_conditions(network, outputVars, desired_output_class):
             network.addInequality([outputVars[0][i], outputVars[0][desired_output_class]], [1, -1], 0)
 
 
+def add_non_zero_input_constraint(network, inputVars):
+    """
+    Adds a constraint to the network to ensure that not all inputs can be zero.
+
+    Args:
+        network (MarabouNetwork): The Marabou network object.
+        inputVars (list): List of input variables.
+
+    Returns:
+        None
+    """
+    disjunction = []  # 用于存储所有的不等式
+
+    for var in inputVars:
+        # 变量大于零的不等式
+        greater_than_zero = MarabouCore.Equation(MarabouCore.Equation.GE)
+        greater_than_zero.addAddend(1, var)
+        greater_than_zero.setScalar(0.1)  # 可以调整为适合您的应用的小正数
+
+        # 变量小于零的不等式
+        less_than_zero = MarabouCore.Equation(MarabouCore.Equation.LE)
+        less_than_zero.addAddend(1, var)
+        less_than_zero.setScalar(-0.1)  # 可以调整为适合您的应用的小负数
+
+        # 添加到“或”约束中
+        disjunction.append([greater_than_zero, less_than_zero])
+
+    # 将“或”约束添加到网络
+    network.addDisjunctionConstraint(disjunction)
+
 # @debug
 def check_results(status, initial_range, step_size):
     """
