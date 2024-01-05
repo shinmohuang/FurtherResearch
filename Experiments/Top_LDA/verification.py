@@ -46,7 +46,7 @@ def main():
                             zip(mean_values, min_unsat_range)]
             print("最小 UNSAT 范围的界限:", range_bounds)
             # 可以选择将界限写入文件
-            mf.write_values_to_csv(range_bounds, 'top10_range_bounds.csv', __file__)
+            mf.write_values_to_csv(range_bounds, 'baseline_range_bounds.csv', __file__)
             print("Solution found!")
             unsat = False
         elif status == "unsat":
@@ -60,7 +60,7 @@ def main():
     # mf.write_values_to_csv(range, 'top10_range.csv', __file__)
     mf.write_values_to_csv(values, 'top10_values.csv', __file__)
     # 可以选择将界限写入文件
-    # mf.write_values_to_csv(range_bounds, 'top10_range_bounds.csv', __file__)
+    # mf.write_values_to_csv(range_bounds, 'baseline_range_bounds.csv', __file__)
 
 if __name__ == "__main__":
     main()
