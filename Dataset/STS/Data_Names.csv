@@ -1,0 +1,35 @@
+features
+Stand-to-stand time
+Sit-to-stand time
+Stand-to-sit time
+M_hip vertical range
+M_hip depth range
+M_hip max vertical velocity
+M_hip min vertical velocity
+M_hip max depth velocity
+M_hip min depth velocity
+Knee flexo-extension range
+Knee flexo-extension max velocity
+Knee flexo-extension min velocity
+Hip flexo-extension range
+Hip flexo-extension max velocity
+Hip flexo-extension min velocity
+Hip abduction-adduction range
+Hip abduction-adduction max velocity
+Hip abduction-adduction min velocity
+Ankle flexo-extension range
+Ankle flexo-extension max velocity
+Ankle flexo-extension min velocity
+M_shoulder vertical range
+M_shoulder depth range
+M_shoulder max vertical velocity
+M_shoulder min vertical velocity
+M_shoulder max depth velocity
+Spine flexo-extension range
+Spine flexo-extension max velocity
+Spine flexo-extension min velocity
+Spine abduction-adduction range
+Spine abduction-adduction max velocity
+Spine abduction-adduction min velocity
+Heart Rate
+Fatigue Condition
