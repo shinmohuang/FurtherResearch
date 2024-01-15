@@ -20,9 +20,9 @@ def main():
     initial_range = [0.01] * 63
     step_size = high_fatigue['std'][:-1].values * 0.1
 
-    options = Marabou.createOptions(snc=True, splittingStrategy='auto',
+    options = Marabou.createOptions(snc=False, splittingStrategy='auto',
                                     sncSplittingStrategy='auto', restoreTreeStates=True,
-                                    splitThreshold=20, solveWithMILP=True, dumpBounds=True)
+                                    splitThreshold=20, solveWithMILP=False, dumpBounds=True)
     # sat_counter = 0  # Initialize sat counter
     unsat = True
     min_unsat_range = 0
