@@ -18,7 +18,7 @@ else:
     print("GPU is NOT available.")
 
 # Load your dataset
-dataset = pd.read_csv('../../Dataset/Exoskeleton/Dataset.csv')  # Replace with your dataset path
+dataset = pd.read_csv('../../../Dataset/Exoskeleton/Dataset.csv')  # Replace with your dataset path
 X = dataset.iloc[:, :-1]  # Features
 y = dataset.iloc[:, -1]   # Target
 
