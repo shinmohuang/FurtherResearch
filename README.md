@@ -58,7 +58,7 @@ python verification.py --config Exoskeleton/Top_LDA/config.ini
 
 ```bash
 cd FurtherResearch/Experiments
-python verification.py --config Exoskeleton/Top_LDA/config.ini
+python verification.py --config STS/Baseline/config.ini
 ```
 
 ## Contributing
