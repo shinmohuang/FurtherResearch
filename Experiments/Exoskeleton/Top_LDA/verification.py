@@ -44,7 +44,7 @@ def plot_fatigue_distribution(high_fatigue, output_values):
 @suppress_error
 def main():
     # Define the file path for the ONNX model and the CSV file
-    model_file_path = '/home/adam/FurtherResearch/Model/Exoskeleton/Top_LDA/exo_model_top10_without_softmax.onnx'
+    model_file_path = '/Model/Exoskeleton/FeatureReduced/exo_model_top10_without_softmax.onnx'
     csv_file_path = '/home/adam/FurtherResearch/Experiments/Exoskeleton/Top_LDA/dataset_statistics_mapped_fatigue_level_high.csv'
 
     # Load the ONNX model using Marabou

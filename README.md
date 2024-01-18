@@ -51,7 +51,7 @@ python verification.py
 
 ```bash
 cd FurtherResearch/Experiments
-python verification.py --config Exoskeleton/Top_LDA/config.ini
+python verification.py --config Exoskeleton/FeatureReduced/config.ini
 ```
 
 ### Run STS Model
