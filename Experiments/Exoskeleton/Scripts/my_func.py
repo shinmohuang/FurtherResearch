@@ -1,4 +1,4 @@
-from maraboupy import Marabou, MarabouCore
+from maraboupy import Marabou, MarabouCore, MarabouUtils
 import os
 import csv
 import numpy as np
@@ -42,10 +42,37 @@ def set_input_range(network, inputVars, mean_values, initial_range):
         network.setUpperBound(inputVars[i], mean_val + initial_range[i])
 
 
-def define_output_conditions(network, outputVars, desired_output_class):
-    for i in range(len(outputVars)):
-        if i != desired_output_class:
-            network.addInequality([outputVars[0][i], outputVars[0][desired_output_class]], [1, -1], 0)
+# def define_output_conditions(network, outputVars, desired_output_class):
+#     for i in range(len(outputVars)):
+#         if i != desired_output_class:
+#             network.addInequality([outputVars[0][i], outputVars[0][desired_output_class]], [1, -1], 0)
+
+# def define_output_conditions(network, outputVars, desired_output_class):
+#     for i in range(len(outputVars)):
+#         if i != desired_output_class:
+#             # Ensure that each class other than the desired_output_class
+#             # has a greater output value than the desired_output_class.
+#             # This is achieved by setting outputVars[0][i] - outputVars[0][desired_output_class] > 0
+#             network.addInequality([outputVars[0][i], outputVars[0][desired_output_class]], [1, -1], 1)
+#
+# from maraboupy import MarabouUtils, MarabouCore
+
+def define_output_conditions(network, outputVars, non_dominant_class):
+    """
+    Ensure that the specified class is not the dominant (largest output) class.
+
+    Args:
+        network (MarabouNetwork): The Marabou network object.
+        outputVars (list of int): List of output variable indices.
+        non_dominant_class (int): Index of the class to ensure is not dominant.
+    """
+    num_classes = len(outputVars)
+    for i in range(num_classes):
+        if i != non_dominant_class:
+            # Create inequality: outputVars[non_dominant_class] - outputVars[i] < 0
+            vars = [outputVars[0][non_dominant_class], outputVars[0][i]]
+            coeffs = [1, -1]
+            network.addInequality(vars, coeffs, -1)
 
 
 def add_non_zero_input_constraint(network, inputVars):
