@@ -1,4 +1,5 @@
 import argparse
+import configparser
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -7,8 +8,16 @@ from Scripts.my_deco import running_time, debug, suppress_error
 from Scripts import my_func as mf
 
 # Constants
-DEFAULT_FEATURES_NUM = 63
+# DEFAULT_FEATURES_NUM = 63
+# Constants
+DEFAULT_CONFIG_FILE = 'config.ini'
 
+# Function definitions...
+
+def get_config(config_file):
+    config = configparser.ConfigParser()
+    config.read(config_file)
+    return config
 # Function definitions (is_within_range, plot_fatigue_distribution)...
 
 def load_data(csv_file_path):
@@ -16,8 +25,11 @@ def load_data(csv_file_path):
     data = pd.read_csv(csv_file_path)
     return data['mean'][:-1].values, data['min'][:-1].values, data['max'][:-1].values, data['std'][:-1].values
 
-def solve_model(model_file_path, inputVars, outputVars, mean_values, min_values, max_values, features_num, initial_range_factor=0.01, step_size_factor=0.01):
+def solve_model(model_file_path, inputVars, outputVars,
+                mean_values, std_values, min_values, max_values, features_num,
+                initial_range_factor=0.01, step_size_factor=0.01):
     # Initial range and step size setup
+    min_unsat_range = None
     initial_range = [initial_range_factor] * features_num
     step_size = std_values * step_size_factor
 
@@ -61,20 +73,29 @@ def solve_model(model_file_path, inputVars, outputVars, mean_values, min_values,
 
         if status == "sat":
             print("Solution found!")
-            return status, values
+            print("Iteration stopped at:", ITERATION)
+            return status, initial_range, values
         elif status == "unsat":
             print("No solution found in this iteration.")
+            print("Iteration stopped at:", ITERATION)
             print("Time elapsed:", stats.getTotalTimeInMicro())
 
             # Update for the next iteration
             min_unsat_range = initial_range.copy()
 
-    return status, None  # In case of no solution
+    return status, min_unsat_range, None  # In case of no solution
 
 
 @running_time
 @suppress_error
-def main(model_file_path, csv_file_path, features_num=DEFAULT_FEATURES_NUM):
+def main(config_file, model_file_path=None, csv_file_path=None, features_num=None):
+    config = get_config(config_file)
+
+    # Use command-line arguments if provided, else use config file
+    model_file_path = model_file_path or config['Model']['model_file_path']
+    csv_file_path = csv_file_path or config['Dataset']['csv_file_path']
+    features_num = int(features_num or config['Dataset']['features_num'])
+
     # Load the ONNX model using Marabou
     network = Marabou.read_onnx(model_file_path)
 
@@ -86,15 +107,26 @@ def main(model_file_path, csv_file_path, features_num=DEFAULT_FEATURES_NUM):
     mean_values, min_values, max_values, std_values = load_data(csv_file_path)
 
     # Solve the model
-    status, values = solve_model(model_file_path, inputVars, outputVars, mean_values, min_values, max_values, features_num)
+    status, min_unsat_range, values = solve_model(model_file_path, inputVars, outputVars,
+                                 mean_values, std_values, min_values, max_values, features_num)
 
-    # Rest of your main logic...
+    # Write the values to CSV
+    if values is not None:
+        mf.write_values_to_csv(values, 'counterExamples.csv', __file__)
+        # min_unsat_range = initial_range.copy()
+        range_bounds = [(mean_val - range_val, mean_val + range_val) for mean_val, range_val in
+                        zip(mean_values, min_unsat_range)]
+        print("最小 UNSAT 范围的界限:", range_bounds)
+        # 可以选择将界限写入文件
+        mf.write_values_to_csv(range_bounds, 'min_unsat_range.csv', __file__)
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Run Marabou model verification.')
-    parser.add_argument('model_file_path', type=str, help='Path to the ONNX model file.')
-    parser.add_argument('csv_file_path', type=str, help='Path to the CSV file.')
-    parser.add_argument('--features_num', type=int, default=DEFAULT_FEATURES_NUM, help='Number of features to consider.')
-    args = parser.parse_args()
+    parser.add_argument('--config', type=str, default=DEFAULT_CONFIG_FILE, help='Path to the configuration file.')
+    parser.add_argument('--model_file_path', type=str, help='Path to the ONNX model file.')
+    parser.add_argument('--csv_file_path', type=str, help='Path to the CSV file.')
+    parser.add_argument('--features_num', type=int, help='Number of features to consider.')
 
-    main(args.model_file_path, args.csv_file_path, args.features_num)
+    args = parser.parse_args()
+    main(args.config, args.model_file_path, args.csv_file_path, args.features_num)

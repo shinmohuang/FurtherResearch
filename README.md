@@ -40,16 +40,25 @@ git clone https://github.com/shinmohuang/FurtherResearch.git
 ## Usage
 To run the verification for the Baseline experiment (for example), run the following command from the root directory of the repository.
 
+### Run with Default (Exoskeleton Baseline)
 
 ```bash
 cd FurtherResearch/Experiments
-python -m Baseline.verification
+python verification.py
 ```
 
-To run verification for the Top LDA experiment, run the following command from the root directory of the repository.
+### Run Reduced Model (Exoskeleton Reduced)
+
 ```bash
 cd FurtherResearch/Experiments
-python -m Top_LDA.verification
+python verification.py --config Exoskeleton/Top_LDA/config.ini
+```
+
+### Run STS Model
+
+```bash
+cd FurtherResearch/Experiments
+python verification.py --config Exoskeleton/Top_LDA/config.ini
 ```
 
 ## Contributing
