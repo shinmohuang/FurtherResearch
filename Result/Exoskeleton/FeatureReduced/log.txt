@@ -1,0 +1,108 @@
+unsat
+No solution found in this iteration.
+Iteration stopped at: 50
+Time elapsed: 2745
+Iteration 50
+Bounds exceeded the limits of the high fatigue.
+End time: 1705667474.215635
+Running time: 0.3821115493774414
+2193] 
+	x9: [147.6886, 250.2201] 
+
+Branching heuristics set to PseudoImpact
+Engine::processInputQuery: Input query (before preprocessing): 52 equations, 112 variables
+Engine::processInputQuery: Input query (after preprocessing): 103 equations, 121 variables
+
+Input bounds:
+	x0: [  0.1615,   0.3559] 
+	x1: [  0.1616,   0.5468] 
+	x2: [  0.1356,   0.2301] 
+	x3: [  6.5687,  15.3502] 
+	x4: [  0.8068,   1.2059] 
+	x5: [ 13.8006,  22.0769] 
+	x6: [ 10.3052,  15.1126] 
+	x7: [  6.1241,  10.2550] 
+	x8: [ 10.7230,  22.3513] 
+	x9: [146.4966, 251.4121] 
+
+Branching heuristics set to PseudoImpact
+Engine::processInputQuery: Input query (before preprocessing): 52 equations, 112 variables
+Engine::processInputQuery: Input query (after preprocessing): 103 equations, 122 variables
+
+Input bounds:
+	x0: [  0.1595,   0.3579] 
+	x1: [  0.1574,   0.5509] 
+	x2: [  0.1348,   0.2310] 
+	x3: [  6.4691,  15.4497] 
+	x4: [  0.8025,   1.2103] 
+	x5: [ 13.7068,  22.1707] 
+	x6: [ 10.2508,  15.1670] 
+	x7: [  6.0774,  10.3017] 
+	x8: [ 10.5910,  22.4832] 
+	x9: [145.3046, 252.6041] 
+
+Branching heuristics set to PseudoImpact
+Engine::processInputQuery: Input query (before preprocessing): 52 equations, 112 variables
+Engine::processInputQuery: Input query (after preprocessing): 103 equations, 123 variables
+
+Input bounds:
+	x0: [  0.1575,   0.3598] 
+	x1: [  0.1533,   0.5551] 
+	x2: [  0.1339,   0.2318] 
+	x3: [  6.3696,  15.5493] 
+	x4: [  0.7982,   1.2146] 
+	x5: [ 13.6130,  22.2645] 
+	x6: [ 10.1964,  15.2214] 
+	x7: [  6.0307,  10.3484] 
+	x8: [ 10.4591,  22.6151] 
+	x9: [144.1126, 253.7961] 
+
+Branching heuristics set to PseudoImpact
+Engine::processInputQuery: Input query (before preprocessing): 52 equations, 112 variables
+Engine::processInputQuery: Input query (after preprocessing): 103 equations, 123 variables
+
+Input bounds:
+	x0: [  0.1555,   0.3618] 
+	x1: [  0.1491,   0.5592] 
+	x2: [  0.1331,   0.2327] 
+	x3: [  6.2700,  15.6489] 
+	x4: [  0.7938,   1.2189] 
+	x5: [ 13.5192,  22.3584] 
+	x6: [ 10.1420,  15.2758] 
+	x7: [  5.9840,  10.3952] 
+	x8: [ 10.3272,  22.7470] 
+	x9: [142.9206, 254.9881] 
+
+Branching heuristics set to PseudoImpact
+Engine::processInputQuery: Input query (before preprocessing): 52 equations, 112 variables
+Engine::processInputQuery: Input query (after preprocessing): 103 equations, 123 variables
+
+Input bounds:
+	x0: [  0.1536,   0.3638] 
+	x1: [  0.1450,   0.5634] 
+	x2: [  0.1322,   0.2335] 
+	x3: [  6.1705,  15.7484] 
+	x4: [  0.7895,   1.2232] 
+	x5: [ 13.4253,  22.4522] 
+	x6: [ 10.0876,  15.3302] 
+	x7: [  5.9373,  10.4419] 
+	x8: [ 10.1953,  22.8789] 
+	x9: [141.7286, 256.1801] 
+
+Branching heuristics set to PseudoImpact
+Engine::processInputQuery: Input query (before preprocessing): 52 equations, 112 variables
+Engine::processInputQuery: Input query (after preprocessing): 103 equations, 123 variables
+
+Input bounds:
+	x0: [  0.1516,   0.3658] 
+	x1: [  0.1408,   0.5675] 
+	x2: [  0.1314,   0.2343] 
+	x3: [  6.0709,  15.8480] 
+	x4: [  0.7852,   1.2275] 
+	x5: [ 13.3315,  22.5460] 
+	x6: [ 10.0332,  15.3846] 
+	x7: [  5.8905,  10.4886] 
+	x8: [ 10.0634,  23.0108] 
+	x9: [140.5366, 257.3721] 
+
+Branching heuristics set to PseudoImpact

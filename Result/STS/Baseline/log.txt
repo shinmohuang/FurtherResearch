@@ -1,0 +1,117 @@
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (after preprocessing): 199 equations, 307 variables
+
+Input bounds:
+	x0: [  1.1297,   1.8257] 
+	x1: [  1.0465,   2.0277] 
+	x2: [  1.0153,   1.6617] 
+	x3: [  0.7901,   1.3479] 
+	x4: [  0.8115,   1.3376] 
+	x5: [  0.8540,   1.1226] 
+	x6: [  1.0156,   1.5323] 
+	x7: [  0.7981,   1.2697] 
+	x8: [  0.7287,   1.3996] 
+	x9: [  0.7215,   1.1987] 
+	x10: [  0.9801,   1.6435] 
+	x11: [  0.9476,   1.5188] 
+	x12: [  0.9826,   1.3254] 
+	x13: [  0.7900,   1.2092] 
+	x14: [  0.7741,   2.0998] 
+	x15: [  0.4352,   1.4307] 
+	x16: [  0.4362,   1.4224] 
+	x17: [  0.5802,   1.1571] 
+	x18: [  1.1015,   1.7499] 
+	x19: [  0.8041,   1.2672] 
+	x20: [  0.8095,   1.2822] 
+	x21: [  0.7543,   1.1644] 
+	x22: [  0.7242,   0.8753] 
+	x23: [  0.6938,   1.3992] 
+	x24: [  0.8145,   1.2799] 
+	x25: [  0.7428,   1.1842] 
+	x26: [  1.0332,   1.5150] 
+	x27: [  0.9964,   1.3654] 
+	x28: [  0.9825,   1.3252] 
+	x29: [  0.7901,   1.2092] 
+	x30: [  1.1012,   1.7504] 
+	x31: [  1.0411,   1.3825] 
+	x32: [  1.3441,   1.8660] 
+
+Branching heuristics set to PseudoImpact
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (after preprocessing): 199 equations, 307 variables
+
+Input bounds:
+	x0: [  1.1297,   1.8257] 
+	x1: [  1.0465,   2.0277] 
+	x2: [  1.0153,   1.6617] 
+	x3: [  0.7901,   1.3479] 
+	x4: [  0.8115,   1.3376] 
+	x5: [  0.8540,   1.1226] 
+	x6: [  1.0156,   1.5323] 
+	x7: [  0.7981,   1.2697] 
+	x8: [  0.7287,   1.3996] 
+	x9: [  0.7215,   1.1987] 
+	x10: [  0.9801,   1.6435] 
+	x11: [  0.9476,   1.5188] 
+	x12: [  0.9826,   1.3254] 
+	x13: [  0.7900,   1.2092] 
+	x14: [  0.7741,   2.0998] 
+	x15: [  0.4352,   1.4307] 
+	x16: [  0.4362,   1.4224] 
+	x17: [  0.5802,   1.1571] 
+	x18: [  1.1015,   1.7499] 
+	x19: [  0.8041,   1.2672] 
+	x20: [  0.8095,   1.2822] 
+	x21: [  0.7543,   1.1644] 
+	x22: [  0.7242,   0.8753] 
+	x23: [  0.6938,   1.3992] 
+	x24: [  0.8145,   1.2799] 
+	x25: [  0.7428,   1.1842] 
+	x26: [  1.0332,   1.5150] 
+	x27: [  0.9964,   1.3654] 
+	x28: [  0.9825,   1.3252] 
+	x29: [  0.7901,   1.2092] 
+	x30: [  1.1012,   1.7504] 
+	x31: [  1.0411,   1.3825] 
+	x32: [  1.3441,   1.8660] 
+
+Branching heuristics set to PseudoImpact
+Worker 10: Query 14 unsat, 1 tasks remaining
+Worker 12: Query 10 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
+Worker 2: Query 5 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
+Worker 9: Query 13 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
+Worker 4: Query 2 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
+Worker 6: Query 8 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
+Worker 13: Query 3 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
+Worker 8: Query 11 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
+Worker 7: Query 9 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
+Worker 0: Query 0 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
+Worker 1: Query 1 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
+Worker 11: Query 15 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
+Worker 3: Query 6 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
+Worker 15: Query 4 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
+Worker 5: Query 7 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
+Worker 14: Query 12 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
+unsat
+No solution found in this iteration.
+Iteration stopped at: 138
+Time elapsed: 7359772721309162716
+Iteration 138
+Bounds exceeded the limits of the high fatigue.
+End time: 1705668637.0954845
+Running time: 66.62139081954956

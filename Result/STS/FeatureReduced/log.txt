@@ -1,0 +1,33 @@
+Engine::processInputQuery: Input query (before preprocessing): 52 equations, 112 variables
+Engine::processInputQuery: Input query (after preprocessing): 103 equations, 118 variables
+
+Input bounds:
+	x0: [  1.4158,   1.4358] 
+	x1: [  1.4157,   1.4357] 
+	x2: [  0.9896,   1.0096] 
+	x3: [  0.9896,   1.0096] 
+	x4: [  0.7898,   0.8098] 
+	x5: [  1.1440,   1.1640] 
+	x6: [  1.1439,   1.1639] 
+	x7: [  1.4677,   1.4877] 
+	x8: [  1.2018,   1.2218] 
+	x9: [  1.0645,   1.0845] 
+
+Branching heuristics set to PseudoImpact
+Engine::processInputQuery: Input query (before preprocessing): 52 equations, 112 variables
+Engine::processInputQuery: Input query (after preprocessing): 103 equations, 118 variables
+
+Input bounds:
+	x0: [  1.4158,   1.4358] 
+	x1: [  1.4157,   1.4357] 
+	x2: [  0.9896,   1.0096] 
+	x3: [  0.9896,   1.0096] 
+	x4: [  0.7898,   0.8098] 
+	x5: [  1.1440,   1.1640] 
+	x6: [  1.1439,   1.1639] 
+	x7: [  1.4677,   1.4877] 
+	x8: [  1.2018,   1.2218] 
+	x9: [  1.0645,   1.0845] 
+
+Branching heuristics set to PseudoImpact
+Worker 0: Query 0 sat, 1 tasks remaining
