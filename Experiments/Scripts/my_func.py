@@ -4,23 +4,18 @@ import csv
 import numpy as np
 
 
-def write_values_to_csv(values, filename, caller_file_path):
+def write_values_to_csv(values, file_path):
     """
-    Write values to a csv file in the directory of the caller file.
+    Write values to a csv file.
 
     Args:
         values: The values to be written.
-        filename: The name of the file to be written.
-        caller_file_path: The file path of the caller.
+        file_path: The complete file path of the CSV file.
 
     Returns:
         None
     """
-    # Get the directory of the caller file
-    caller_directory = os.path.dirname(os.path.abspath(caller_file_path))
-    full_path = os.path.join(caller_directory, filename)
-
-    with open(full_path, 'a', newline='') as csvfile:
+    with open(file_path, 'a', newline='') as csvfile:
         writer = csv.writer(csvfile)
 
         # Check if values is a dictionary or numpy array and convert to list
@@ -31,7 +26,7 @@ def write_values_to_csv(values, filename, caller_file_path):
 
         writer.writerow(values)
 
-    print(f"Values written to {full_path}")
+    print(f"Values written to {file_path}")
 
 
 
