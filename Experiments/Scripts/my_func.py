@@ -129,24 +129,21 @@ def check_results(status, initial_range, step_size):
 
 
 def block_solution(network, values, inputVars):
-    """
-    Adds constraints to the network to block the current solution.
-
-    Args:
-    network (MarabouNetwork): The Marabou network object.
-    values (dict): The current solution values.
-    inputVars (list): List of input variables.
-    """
     for var in inputVars:
-        # Create a constraint that the variable is less than the current solution
+        value = values[var.item()]
+
+        # Less than constraint
         eq1 = MarabouCore.Equation(MarabouCore.Equation.LE)
         eq1.addAddend(1, var)
-        eq1.setScalar(values[var.item()] - 0.05)
+        eq1.setScalar(value - 0.05)
 
-        # Create a constraint that the variable is greater than the current solution
+        # Greater than constraint
         eq2 = MarabouCore.Equation(MarabouCore.Equation.GE)
         eq2.addAddend(1, var)
-        eq2.setScalar(values[var.item()] + 0.05)
+        eq2.setScalar(value + 0.05)
 
-        # Add the disjunction of the two constraints to the network
+        # Add disjunction
         network.addDisjunctionConstraint([[eq1], [eq2]])
+
+        print(f"Blocking var {var.item()}: not in [{value - 0.1}, {value + 0.1}]")
+
