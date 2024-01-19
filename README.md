@@ -8,22 +8,35 @@ This repository hosts the research data and analysis files for a project focused
 
 ### Folders
 - `Dataset`: Contains datasets used in the research.
-- `Experiments`: Includes different experiment categories such as BMI-Based, Baseline, Gender-Based, Individual-Specific, and Top LDA.
-    - `BMI-Based`: [Description of what this contains or represents]
+
+[//]: # (- `Experiments`: Includes different experiment categories such as BMI-Based, Baseline, Gender-Based, Individual-Specific, and Top LDA.)
+
+[//]: # (    - `BMI-Based`: [Description of what this contains or represents])
+
+[//]: # (    - `Baseline`: [Description])
+
+[//]: # (    - `Gender-Based`: [Description])
+
+[//]: # (    - `Individual-Specific`: [Description])
+
+[//]: # (    - `Top LDA`: [Description])
+- `Experiments/Exoskeleton`: Contains the Exoskeleton model and its reduced model.
     - `Baseline`: [Description]
-    - `Gender-Based`: [Description]
-    - `Individual-Specific`: [Description]
-    - `Top LDA`: [Description]
+    - `FeatureReduced`: [Description]
+- `Experiments/STS`: Contains the STS model.
+    - `Baseline`: [Description]
+    - `FeatureReduced`: [Description]
+  - `verification.py`: The main script for running the verification experiments.
 
-[//]: # (### Files)
+- `Results`: Contains the results of the experiments.
+    - `Exoskeleton`: Contains the results of the Exoskeleton model.
+        - `Baseline`: [Description]
+        - `FeatureReduced`: [Description]
+    - `STS`: Contains the results of the STS model.
+        - `Baseline`: [Description]
+        - `FeatureReduced`: [Description]
 
-[//]: # (- `Metrics with BMI.xlsx`: An Excel file containing metrics related to Body Mass Index &#40;BMI&#41;.)
 
-[//]: # (- `README.md`: The README file for the repository.)
-
-[//]: # (- `dataset_visualization.ipynb`: A Jupyter Notebook for visualizing the datasets.)
-
-[//]: # (- `output.png`: An output image from one of the analyses.)
 
 ## Dependencies
 ```bash
