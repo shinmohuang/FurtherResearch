@@ -6,11 +6,28 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import confusion_matrix
 
+def define_output_conditions(network, outputVars, non_dominant_class):
+    """
+    Ensure that the specified class is not the dominant (largest output) class.
+
+    Args:
+        network (MarabouNetwork): The Marabou network object.
+        outputVars (list of int): List of output variable indices.
+        non_dominant_class (int): Index of the class to ensure is not dominant.
+    """
+    num_classes = len(outputVars)
+    for i in range(num_classes):
+        if i != non_dominant_class:
+            # Create inequality: outputVars[non_dominant_class] - outputVars[i] < 0
+            vars = [outputVars[0][non_dominant_class], outputVars[0][i]]
+            coeffs = [1, -1]
+            network.addInequality(vars, coeffs, -1)
+
 # Read the dataset CSV file
 dataset = pd.read_csv('../../../Dataset/Exoskeleton/Top_LDA_dataset.csv')
 
 X = dataset.iloc[:, :-1]
-y = dataset.iloc[:, -1] - 1
+y = dataset.iloc[:, -1]
 
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
@@ -41,6 +58,8 @@ outputVars = network.outputVars[0]
 # Set the input constraints for the particular data point you want to test
 data_point = high_medium_features  # Replace with the values of your data point
 
+define_output_conditions(network, outputVars, 2)
+
 counter = 0
 
 # 对 data_point 的每一行进行迭代
@@ -61,4 +80,6 @@ for index, row in data_point.iterrows():
         print(f"Solution found for data point {index}")
         counter += 1
 
+print(f"Confusion matrix:\n{cm}")
+print(high_medium_features)
 print(f"Number of solutions found: {counter}")
