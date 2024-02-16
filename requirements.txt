@@ -1,8 +1,8 @@
 # This file may be used to create an environment using:
 # $ conda create --name <env> --file <this file>
 # platform: linux-64
-python=3.10
+python=3.9
+numpy=1.23.4
+tensorflow-gpu=2.4.1
 maraboupy=1.0.0
-tensorflow=2.12.0
-
 
