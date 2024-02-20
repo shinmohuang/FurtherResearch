@@ -2,8 +2,9 @@ import argparse
 import configparser
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 from maraboupy import Marabou
+from maraboupy.MarabouNetworkONNX import MarabouNetworkONNX
 from Scripts.my_deco import running_time, debug, suppress_error
 from Scripts import my_func as mf
 

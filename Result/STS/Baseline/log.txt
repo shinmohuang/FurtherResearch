@@ -1,117 +1,59 @@
 Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
-Engine::processInputQuery: Input query (after preprocessing): 199 equations, 302 variables
-
-Input bounds:
-	x0: [  1.1297,   1.8257] 
-	x1: [  1.0465,   2.0277] 
-	x2: [  1.0153,   1.6617] 
-	x3: [  0.7901,   1.3479] 
-	x4: [  0.8115,   1.3376] 
-	x5: [  0.8540,   1.1226] 
-	x6: [  1.0156,   1.5323] 
-	x7: [  0.7981,   1.2697] 
-	x8: [  0.7287,   1.3996] 
-	x9: [  0.7215,   1.1987] 
-	x10: [  0.9801,   1.6435] 
-	x11: [  0.9476,   1.5188] 
-	x12: [  0.9826,   1.3254] 
-	x13: [  0.7900,   1.2092] 
-	x14: [  0.7741,   2.0998] 
-	x15: [  0.4352,   1.4307] 
-	x16: [  0.4362,   1.4224] 
-	x17: [  0.5802,   1.1571] 
-	x18: [  1.1015,   1.7499] 
-	x19: [  0.8041,   1.2672] 
-	x20: [  0.8095,   1.2822] 
-	x21: [  0.7543,   1.1644] 
-	x22: [  0.7242,   0.8753] 
-	x23: [  0.6938,   1.3992] 
-	x24: [  0.8145,   1.2799] 
-	x25: [  0.7428,   1.1842] 
-	x26: [  1.0332,   1.5150] 
-	x27: [  0.9964,   1.3654] 
-	x28: [  0.9825,   1.3252] 
-	x29: [  0.7901,   1.2092] 
-	x30: [  1.1012,   1.7504] 
-	x31: [  1.0411,   1.3825] 
-	x32: [  1.3441,   1.8660] 
-
-Branching heuristics set to PseudoImpact
 Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
-Engine::processInputQuery: Input query (after preprocessing): 199 equations, 302 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (before preprocessing): 100 equations, 231 variables
+Engine::processInputQuery: Input query (after preprocessing): 199 equations, 254 variables
 
 Input bounds:
-	x0: [  1.1297,   1.8257] 
-	x1: [  1.0465,   2.0277] 
-	x2: [  1.0153,   1.6617] 
-	x3: [  0.7901,   1.3479] 
-	x4: [  0.8115,   1.3376] 
-	x5: [  0.8540,   1.1226] 
-	x6: [  1.0156,   1.5323] 
-	x7: [  0.7981,   1.2697] 
-	x8: [  0.7287,   1.3996] 
-	x9: [  0.7215,   1.1987] 
-	x10: [  0.9801,   1.6435] 
-	x11: [  0.9476,   1.5188] 
-	x12: [  0.9826,   1.3254] 
-	x13: [  0.7900,   1.2092] 
-	x14: [  0.7741,   2.0998] 
-	x15: [  0.4352,   1.4307] 
-	x16: [  0.4362,   1.4224] 
-	x17: [  0.5802,   1.1571] 
-	x18: [  1.1015,   1.7499] 
-	x19: [  0.8041,   1.2672] 
-	x20: [  0.8095,   1.2822] 
-	x21: [  0.7543,   1.1644] 
-	x22: [  0.7242,   0.8753] 
-	x23: [  0.6938,   1.3992] 
-	x24: [  0.8145,   1.2799] 
-	x25: [  0.7428,   1.1842] 
-	x26: [  1.0332,   1.5150] 
-	x27: [  0.9964,   1.3654] 
-	x28: [  0.9825,   1.3252] 
-	x29: [  0.7901,   1.2092] 
-	x30: [  1.1012,   1.7504] 
-	x31: [  1.0411,   1.3825] 
-	x32: [  1.3441,   1.8660] 
-
-Branching heuristics set to PseudoImpact
-Worker 0: Query 0 unsat, 1 tasks remaining
-Worker 11: Query 9 QUIT_REQUESTED, 0 tasks remaining
-Quit requested by manager!
-Worker 8: Query 7 QUIT_REQUESTED, 0 tasks remaining
-Quit requested by manager!
-Worker 14: Query 11 QUIT_REQUESTED, 0 tasks remaining
-Quit requested by manager!
-Worker 4: Query 3 QUIT_REQUESTED, 0 tasks remaining
-Quit requested by manager!
-Worker 2: Query 1 QUIT_REQUESTED, 0 tasks remaining
-Quit requested by manager!
-Worker 9: Query 8 QUIT_REQUESTED, 0 tasks remaining
-Quit requested by manager!
-Worker 3: Query 2 QUIT_REQUESTED, 0 tasks remaining
-Quit requested by manager!
-Worker 7: Query 5 QUIT_REQUESTED, 0 tasks remaining
-Quit requested by manager!
-Worker 5: Query 6 QUIT_REQUESTED, 0 tasks remaining
-Quit requested by manager!
-Worker 12: Query 13 QUIT_REQUESTED, 0 tasks remaining
-Quit requested by manager!
-Worker 13: Query 14 QUIT_REQUESTED, 0 tasks remaining
-Quit requested by manager!
-Worker 15: Query 15 QUIT_REQUESTED, 0 tasks remaining
-Quit requested by manager!
-Worker 10: Query 12 QUIT_REQUESTED, 0 tasks remaining
-Quit requested by manager!
-Worker 1: Query 4 QUIT_REQUESTED, 0 tasks remaining
-Quit requested by manager!
-Worker 6: Query 10 QUIT_REQUESTED, 0 tasks remaining
-Quit requested by manager!
-unsat
-No solution found in this iteration.
-Iteration stopped at: 138
-Time elapsed: 7498853514955251998
-Iteration 138
-Bounds exceeded the limits of the high fatigue.
-End time: 1707398167.9842246
-Running time: 28.221900939941406
+	x0: [  1.3764,   1.5790] 
+	x1: [  1.3973,   1.6769] 
+	x2: [  1.2439,   1.4331] 
+	x3: [  0.9864,   1.1516] 
+	x4: [  0.9962,   1.1529] 
+	x5: [  0.9447,   1.0319] 
+	x6: [  1.1969,   1.3510] 
+	x7: [  0.9629,   1.1049] 
+	x8: [  0.9663,   1.1621] 
+	x9: [  0.8883,   1.0318] 
+	x10: [  1.2149,   1.4087] 
+	x11: [  1.1488,   1.3176] 
+	x12: [  1.1004,   1.2076] 
+	x13: [  0.9357,   1.0635] 
+	x14: [  1.2506,   1.6233] 
+	x15: [  0.7912,   1.0747] 
+	x16: [  0.7888,   1.0697] 
+	x17: [  0.7835,   0.9539] 
