@@ -27,7 +27,7 @@ def define_output_conditions(network, outputVars, non_dominant_class):
 dataset = pd.read_csv('../../../Dataset/Exoskeleton/Top_LDA_dataset.csv')
 
 X = dataset.iloc[:, :-1]
-y = dataset.iloc[:, -1]
+y = dataset.iloc[:, -1]-1
 
 scaler = StandardScaler()
 X_scaled = scaler.fit_transform(X)
@@ -36,7 +36,7 @@ y = to_categorical(y)
 
 X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
 
-model = tf.keras.models.load_model('../../../Model/Exoskeleton/FeatureReduced/exo_model_top10')
+model = tf.keras.models.load_model('/home/adam/FurtherResearch/Model/Exoskeleton/FeatureReduced/exo_model_top10')
 
 y_pred = model.predict(X_test)
 y_pred = np.argmax(y_pred, axis=1)
@@ -49,7 +49,7 @@ high_medium_features = X_scaled.iloc[high_medium_indices, :]
 
 from maraboupy import Marabou
 # Load the network
-network = Marabou.read_onnx('../../../Model/Exoskeleton/FeatureReduced/exo_model_top10_without_softmax.onnx')
+network = Marabou.read_onnx('/home/adam/FurtherResearch/Model/Exoskeleton/FeatureReduced/exo_model_top10_without_softmax.onnx')
 
 # Get the input and output variable numbers, assuming a single input and output
 inputVars = network.inputVars[0][0]

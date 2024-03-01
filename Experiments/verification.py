@@ -36,9 +36,9 @@ def solve_model(model_file_path, inputVars, outputVars, mean_values, std_values,
     step_size = std_values * step_size_factor
 
     # Marabou options configuration for solving
-    options = Marabou.createOptions(snc=True, splittingStrategy='auto', numWorkers=16,
+    options = Marabou.createOptions(snc=True, splittingStrategy='largest-interval', numWorkers=32,
                                     sncSplittingStrategy='auto', restoreTreeStates=True,
-                                    splitThreshold=20, solveWithMILP=False, dumpBounds=False)
+                                    solveWithMILP=False, dumpBounds=False)
 
     # Iterative solving loop
     unsat = True
