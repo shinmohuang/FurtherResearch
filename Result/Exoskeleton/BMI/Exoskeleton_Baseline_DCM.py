@@ -36,7 +36,7 @@ X_scaled = scaler.fit_transform(X)
 X_scaled = pd.DataFrame(X_scaled, columns=dataset.columns[:-2])
 y = to_categorical(y)
 
-X_train, X_test, y_train, y_test = train_test_split(X_scaled, y, test_size=0.2, random_state=42)
+X_train, X_test, y_train, y_test = train_test_split(X_scaled.round(4), y, test_size=0.2, random_state=42)
 
 model = tf.keras.models.load_model('/home/adam/FurtherResearch/Model/Exoskeleton/BMI/Exo_model_with_BMI')
 
@@ -47,7 +47,7 @@ y_test = np.argmax(y_test, axis=1)
 cm = confusion_matrix(y_test, y_pred)
 
 high_medium_indices = [i for i, (true, pred) in enumerate(zip(y_test, y_pred)) if true == 2 and pred == 1]
-high_medium_features = X_scaled.iloc[high_medium_indices, :]
+high_medium_features = X_scaled.iloc[high_medium_indices, :].round(4)
 
 from maraboupy import Marabou
 # Load the network
