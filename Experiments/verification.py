@@ -24,7 +24,7 @@ def get_config(config_file):
 def load_data(csv_file_path):
     # Load high fatigue data from CSV and extract values
     data = pd.read_csv(csv_file_path)
-    return data['mean'][:-1].values, data['min'][:-1].values, data['max'][:-1].values, data['std'][:-1].values
+    return data['mean'][:-1].values.round(4), data['min'][:-1].values.round(4), data['max'][:-1].values.round(4), data['std'][:-1].values.round(4)
 
 def solve_model(model_file_path, inputVars, outputVars, mean_values, std_values,
                 min_values, max_values, features_num, log_file_path,

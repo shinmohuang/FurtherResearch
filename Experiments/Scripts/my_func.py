@@ -33,8 +33,8 @@ def write_values_to_csv(values, file_path):
 
 def set_input_range(network, inputVars, mean_values, initial_range):
     for i, mean_val in enumerate(mean_values):
-        network.setLowerBound(inputVars[i], mean_val - initial_range[i])
-        network.setUpperBound(inputVars[i], mean_val + initial_range[i])
+        network.setLowerBound(inputVars[i], (mean_val - initial_range[i]).round(4))
+        network.setUpperBound(inputVars[i], (mean_val + initial_range[i]).round(4))
 
 
 # def define_output_conditions(network, outputVars, desired_output_class):
@@ -70,35 +70,35 @@ def define_output_conditions(network, outputVars, non_dominant_class):
             network.addInequality(vars, coeffs, -1)
 
 
-def add_non_zero_input_constraint(network, inputVars):
-    """
-    Adds a constraint to the network to ensure that not all inputs can be zero.
-
-    Args:
-        network (MarabouNetwork): The Marabou network object.
-        inputVars (list): List of input variables.
-
-    Returns:
-        None
-    """
-    disjunction = []  # 用于存储所有的不等式
-
-    for var in inputVars:
-        # 变量大于零的不等式
-        greater_than_zero = MarabouCore.Equation(MarabouCore.Equation.GE)
-        greater_than_zero.addAddend(1, var)
-        greater_than_zero.setScalar(0.1)  # 可以调整为适合您的应用的小正数
-
-        # 变量小于零的不等式
-        less_than_zero = MarabouCore.Equation(MarabouCore.Equation.LE)
-        less_than_zero.addAddend(1, var)
-        less_than_zero.setScalar(-0.1)  # 可以调整为适合您的应用的小负数
-
-        # 添加到“或”约束中
-        disjunction.append([greater_than_zero, less_than_zero])
-
-    # 将“或”约束添加到网络
-    network.addDisjunctionConstraint(disjunction)
+# def add_non_zero_input_constraint(network, inputVars):
+#     """
+#     Adds a constraint to the network to ensure that not all inputs can be zero.
+#
+#     Args:
+#         network (MarabouNetwork): The Marabou network object.
+#         inputVars (list): List of input variables.
+#
+#     Returns:
+#         None
+#     """
+#     disjunction = []  # 用于存储所有的不等式
+#
+#     for var in inputVars:
+#         # 变量大于零的不等式
+#         greater_than_zero = MarabouCore.Equation(MarabouCore.Equation.GE)
+#         greater_than_zero.addAddend(1, var)
+#         greater_than_zero.setScalar(0.1)  # 可以调整为适合您的应用的小正数
+#
+#         # 变量小于零的不等式
+#         less_than_zero = MarabouCore.Equation(MarabouCore.Equation.LE)
+#         less_than_zero.addAddend(1, var)
+#         less_than_zero.setScalar(-0.1)  # 可以调整为适合您的应用的小负数
+#
+#         # 添加到“或”约束中
+#         disjunction.append([greater_than_zero, less_than_zero])
+#
+#     # 将“或”约束添加到网络
+#     network.addDisjunctionConstraint(disjunction)
 
 # @debug
 def check_results(status, initial_range, step_size):
@@ -140,5 +140,5 @@ def block_solution(network, values, inputVars):
         # Add disjunction
         network.addDisjunctionConstraint([[eq1], [eq2]])
 
-        print(f"Blocking var {var.item()}: not in [{value - 0.1}, {value + 0.1}]")
+        # print(f"Blocking var {var.item()}: not in [{value - 0.05}, {value + 0.05}]")
 

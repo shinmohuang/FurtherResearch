@@ -1,11 +1,11 @@
 unsat
 No solution found in this iteration.
 Iteration stopped at: 49
-Time elapsed: 769
+Time elapsed: 618
 Iteration 49
 Bounds exceeded the limits of the high fatigue.
-End time: 1709593006.3662696
-Running time: 0.2923014163970947
+End time: 1711108533.079557
+Running time: 0.33309507369995117
 ngine::processInputQuery: Input query (before preprocessing): 52 equations, 112 variables
 Engine::processInputQuery: Input query (before preprocessing): 52 equations, 112 variables
 Engine::processInputQuery: Input query (before preprocessing): 52 equations, 112 variables
