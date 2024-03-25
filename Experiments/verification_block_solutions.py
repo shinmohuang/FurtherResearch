@@ -19,7 +19,7 @@ def load_data(csv_file_path):
     return data['mean'][:-1].values.round(4), data['min'][:-1].values.round(4), data['max'][:-1].values.round(4)
 
 def solve_model(model_file_path, inputVars, outputVars, min_values, max_values, log_file_path):
-    options = Marabou.createOptions(snc=True, numWorkers=32)
+    options = Marabou.createOptions(snc=True, numWorkers=8)
     solutions, unsat, solution_count = [], False, 0
     while not unsat:
         network = Marabou.read_onnx(model_file_path)
