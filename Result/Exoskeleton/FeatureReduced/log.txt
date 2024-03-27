@@ -1,12 +1,50 @@
+Engine::processInputQuery: Input query (before preprocessing): 52 equations, 112 variables
+Engine::processInputQuery: Input query (after preprocessing): 103 equations, 163 variables
+
+Input bounds:
+	x0: [ -0.8895,   4.0086] 
+	x1: [ -1.0917,   4.9648] 
+	x2: [ -0.8464,   8.1269] 
+	x3: [ -1.1749,  -0.0324] 
+	x4: [ -0.4844,   8.0467] 
+	x5: [ -0.7821,  12.6079] 
+	x6: [ -0.7930,  10.1319] 
+	x7: [ -1.0231,   0.2021] 
+	x8: [ -0.7198,  -0.0988] 
+	x9: [ -0.7158,  -0.4513] 
+
+Branching heuristics set to PseudoImpact
+Engine::processInputQuery: Input query (before preprocessing): 52 equations, 112 variables
+Engine::processInputQuery: Input query (after preprocessing): 103 equations, 163 variables
+
+Input bounds:
+	x0: [ -0.8895,   4.0086] 
+	x1: [ -1.0917,   4.9648] 
+	x2: [ -0.8464,   8.1269] 
+	x3: [ -1.1749,  -0.0324] 
+	x4: [ -0.4844,   8.0467] 
+	x5: [ -0.7821,  12.6079] 
+	x6: [ -0.7930,  10.1319] 
+	x7: [ -1.0231,   0.2021] 
+	x8: [ -0.7198,  -0.0988] 
+	x9: [ -0.7158,  -0.4513] 
+
+Branching heuristics set to PseudoImpact
+Worker 3: Query 3 unsat, 1 tasks remaining
+Worker 6: Query 6 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
+Worker 4: Query 4 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
+Worker 2: Query 2 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
+Worker 1: Query 1 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
+Worker 5: Query 5 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
+Worker 0: Query 0 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
+Worker 7: Query 7 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
 unsat
-No solution found in this iteration.
-Iteration stopped at: 49
-Time elapsed: 618
-Iteration 49
-Bounds exceeded the limits of the high fatigue.
-End time: 1711108533.079557
-Running time: 0.33309507369995117
-ngine::processInputQuery: Input query (before preprocessing): 52 equations, 112 variables
-Engine::processInputQuery: Input query (before preprocessing): 52 equations, 112 variables
-Engine::processInputQuery: Input query (before preprocessing): 52 equations, 112 variables
-Engine::processInputQuery: Input query (before preprocessing): 52 equations, 112 variables
+End time: 1711449525.8469026
+Running time: 1.8951611518859863

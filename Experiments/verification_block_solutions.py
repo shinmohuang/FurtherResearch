@@ -18,7 +18,7 @@ def load_data(csv_file_path):
     data = pd.read_csv(csv_file_path)
     return data['mean'][:-1].values.round(4), data['min'][:-1].values.round(4), data['max'][:-1].values.round(4)
 
-def solve_model(model_file_path, inputVars, outputVars, min_values, max_values, log_file_path):
+def solve_model(model_file_path, inputVars, outputVars, min_values, max_values, log_file_path, counterExample_to_file):
     options = Marabou.createOptions(snc=True, numWorkers=8)
     solutions, unsat, solution_count = [], False, 0
     while not unsat:
@@ -35,6 +35,7 @@ def solve_model(model_file_path, inputVars, outputVars, min_values, max_values, 
             solutions.append(values)
             solution_count += 1  # Increment the solution count
             print(f"Solution {solution_count} found.")  # Print the current solution count
+            mf.write_values_to_csv(values, counterExample_to_file)
         else:
             unsat = True
     return solutions
@@ -52,9 +53,8 @@ def main(config_file, model_file_path=None, csv_file_path=None, log_file_path=No
     network = Marabou.read_onnx(model_file_path)
     inputVars, outputVars = network.inputVars[0][0], network.outputVars[0]
     mean_values, min_values, max_values = load_data(csv_file_path)
-    solutions = solve_model(model_file_path, inputVars, outputVars, min_values, max_values, log_file_path)
+    solutions = solve_model(model_file_path, inputVars, outputVars, min_values, max_values, log_file_path, counterExample_to_file)
     if solutions:
-        mf.write_values_to_csv(solutions, counterExample_to_file)
         print(f"Total solutions found: {len(solutions)}")
 
 if __name__ == "__main__":
