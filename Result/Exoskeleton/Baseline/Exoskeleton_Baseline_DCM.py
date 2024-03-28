@@ -1,6 +1,9 @@
 import tensorflow as tf
 import pandas as pd
 import numpy as np
+from maraboupy import Marabou
+from scipy.spatial.distance import mahalanobis
+from scipy.linalg import inv
 from tensorflow.keras.utils import to_categorical
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -49,7 +52,6 @@ cm = confusion_matrix(y_test, y_pred)
 high_medium_indices = [i for i, (true, pred) in enumerate(zip(y_test, y_pred)) if true == 2 and pred == 1]
 high_medium_features = X_scaled.iloc[high_medium_indices, :].round(4)
 
-from maraboupy import Marabou
 # Load the network
 network = Marabou.read_onnx('/home/adam/FurtherResearch/Model/Exoskeleton/Baseline/exo_model_without_softmax.onnx')
 
@@ -85,3 +87,57 @@ for index, row in data_point.iterrows():
 print(f"Confusion matrix:\n{cm}")
 print(high_medium_features)
 print(f"Number of solutions found: {counter}")
+
+
+def detect_outliers_dynamic_threshold(large_dataset, small_dataset, percentile=95):
+    """
+    使用大数据集中马氏距离的动态百分位数作为阈值，检测小数据集中的异常点，并返回动态阈值。
+
+    参数:
+    - large_dataset: 大数据集的DataFrame。
+    - small_dataset: 小数据集的DataFrame。
+    - percentile: 用于确定异常值阈值的百分位数，例如95或99，默认为95。
+
+    返回:
+    - outliers: 检测到的异常点的DataFrame。
+    - dynamic_threshold: 动态阈值。
+    - small_distances: 小数据集中每个点的马氏距离数组。
+    """
+    # 计算大数据集的均值向量和协方差矩阵
+    mean_vector = large_dataset.mean(axis=0)
+    cov_matrix = large_dataset.cov()
+    cov_matrix_inv = inv(cov_matrix)
+
+    # 计算大数据集中每个点的马氏距离
+    large_distances = np.array(
+        [mahalanobis(row, mean_vector, cov_matrix_inv) for index, row in large_dataset.iterrows()])
+
+    # 计算动态阈值
+    dynamic_threshold = np.percentile(large_distances, percentile)
+
+    # 计算小数据集中每个点的马氏距离
+    small_distances = np.array(
+        [mahalanobis(row, mean_vector, cov_matrix_inv) for index, row in small_dataset.iterrows()])
+
+    # 标识超过动态阈值的异常点
+    outliers_mask = small_distances > dynamic_threshold
+    outliers = small_dataset[outliers_mask].copy()
+    outliers['Mahalanobis_Distance'] = small_distances[outliers_mask]
+
+    # 输出结果
+    if outliers.empty:
+        print(
+            f"No outliers detected in the small dataset with the dynamic threshold set at the {percentile}th percentile.")
+    else:
+        print(
+            f"Outliers detected in the small dataset with the dynamic threshold set at the {percentile}th percentile:")
+
+    return outliers, dynamic_threshold, small_distances
+
+
+# 使用示例
+# 假设 Baseline_dataset 和 Baseline_ce 已经是两个加载好的DataFrame
+outliers_result, threshold, distances = detect_outliers_dynamic_threshold(X_scaled.round(4), data_point, percentile=99)
+print("Dynamic threshold：", threshold)
+if not outliers_result.empty:
+    print(outliers_result)
