@@ -30,21 +30,23 @@ Input bounds:
 	x9: [ -0.7158,  -0.4513] 
 
 Branching heuristics set to PseudoImpact
-Worker 3: Query 3 unsat, 1 tasks remaining
+Worker 1: Query 1 unsat, 1 tasks remaining
+Worker 0: Query 0 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
+Worker 3: Query 3 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
+Worker 7: Query 7 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
 Worker 6: Query 6 QUIT_REQUESTED, 0 tasks remaining
+Quit requested by manager!
+Worker 5: Query 5 QUIT_REQUESTED, 0 tasks remaining
 Quit requested by manager!
 Worker 4: Query 4 QUIT_REQUESTED, 0 tasks remaining
 Quit requested by manager!
 Worker 2: Query 2 QUIT_REQUESTED, 0 tasks remaining
 Quit requested by manager!
-Worker 1: Query 1 QUIT_REQUESTED, 0 tasks remaining
-Quit requested by manager!
-Worker 5: Query 5 QUIT_REQUESTED, 0 tasks remaining
-Quit requested by manager!
-Worker 0: Query 0 QUIT_REQUESTED, 0 tasks remaining
-Quit requested by manager!
-Worker 7: Query 7 QUIT_REQUESTED, 0 tasks remaining
-Quit requested by manager!
 unsat
-End time: 1711449525.8469026
-Running time: 1.8951611518859863
+
+No more solutions. Progress: 100%
+End time: 1711842448.736573
+Running time: 1.8073408603668213

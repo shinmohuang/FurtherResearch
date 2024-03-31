@@ -130,12 +130,12 @@ def block_solution(network, values, inputVars):
         # Less than constraint
         eq1 = MarabouCore.Equation(MarabouCore.Equation.LE)
         eq1.addAddend(1, var)
-        eq1.setScalar(value - 0.05)
+        eq1.setScalar(value - 0.01)
 
         # Greater than constraint
         eq2 = MarabouCore.Equation(MarabouCore.Equation.GE)
         eq2.addAddend(1, var)
-        eq2.setScalar(value + 0.05)
+        eq2.setScalar(value + 0.01)
 
         # Add disjunction
         network.addDisjunctionConstraint([[eq1], [eq2]])
