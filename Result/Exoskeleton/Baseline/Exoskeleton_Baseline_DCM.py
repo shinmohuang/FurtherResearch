@@ -64,6 +64,7 @@ data_point = high_medium_features  # Replace with the values of your data point
 
 define_output_conditions(network, outputVars, 2)
 
+solutions_indices = []
 counter = 0
 
 # 对 data_point 的每一行进行迭代
@@ -82,12 +83,14 @@ for index, row in data_point.iterrows():
     status, values, stats = result
     if status == "sat":
         print(f"Solution found for data point {index}")
+        solutions_indices.append(index)
         counter += 1
 
 print(f"Confusion matrix:\n{cm}")
 print(high_medium_features)
 print(f"Number of solutions found: {counter}")
-
+solutions_df = high_medium_features.loc[solutions_indices]
+print(solutions_df)
 
 
 def detect_outliers_dynamic_threshold(large_dataset, small_dataset, lower_percentile=15, upper_percentile=85):
